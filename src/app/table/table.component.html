@@ -1,0 +1,11 @@
+<table class="table">
+  <thead table-head [grid]="grid"
+              (create)="create.emit($event)"
+              (sort)="sort.emit($event)"
+              (filter)="filter.emit($event)">
+  </thead>
+  <tbody table-body [grid]="grid"
+              (edit)="edit.emit($event)"
+              (delete)="delete.emit($event)">
+  </tbody>
+</table>

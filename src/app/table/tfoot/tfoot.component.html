@@ -1,0 +1,11 @@
+<tr *ngIf="pagingEnabled">
+    <div class='placeholder'></div>
+    <div class='paging-container'>
+        <page-size [pageSizeValues]="pageSizeValues" 
+                    (pageSize)="emitPaging()">
+        </page-size>
+        <div class='page-number-container'>
+            
+        </div>
+    </div>
+</tr>
