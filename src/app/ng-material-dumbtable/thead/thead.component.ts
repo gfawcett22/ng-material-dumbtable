@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { Grid } from "../lib/grid";
+import { Grid } from '../lib/grid';
 
 @Component({
   selector: '[table-head]',

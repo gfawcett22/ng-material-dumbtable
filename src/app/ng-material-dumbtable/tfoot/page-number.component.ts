@@ -2,7 +2,12 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
     selector: 'page-number',
-    templateUrl: 'page-number.component.html'
+    template:
+    `
+        <div class='page-number-container'>
+            <
+        </div>
+    `
 })
 
 export class PageNumberComponent implements OnInit {

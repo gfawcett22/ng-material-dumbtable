@@ -7,7 +7,7 @@ import { Column } from '../../../lib/column';
   selector: 'table-title',
   template: `
     <a href="#" *ngIf="column.isSortable"
-                (click)="_sort($event, column)"                
+                (click)="_sort($event, column)"
                 [ngClass]="currentDirection">
       {{ column.title }}
     </a>
@@ -23,7 +23,7 @@ export class TitleComponent {
   _sort(event: any) {
     event.preventDefault();
     this.changeSortDirection();
-    
+
     this.sort.emit(this.column);
   }
 

@@ -1,9 +1,9 @@
 <div class='table-resposive'>
   <app-table [settings]="settings"
              [rows]="customers"
-             (edit)="openEditDialog($event)"
-             (delete)="openEditDialog($event)"
-             (create)="openCreateDialog($event)"
+             (edit)="edit($event)"
+             (delete)="delete($event)"
+             (create)="create($event)"
              (filter)="filter($event)"
              (sort)="sort($event)">
   </app-table>

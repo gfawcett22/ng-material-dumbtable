@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, OnChanges, Output, EventEmitter } from '@angular/core';
-import { Grid } from 'app/table/lib/grid';
-import { IPagingSettings } from 'app/table/lib/interfaces/IPagingSettings';
+import { Grid } from '../lib/grid';
+import { IPagingSettings } from 'app/ng-material-dumbtable/lib/interfaces/IPagingSettings';
 
 @Component({
     selector: '[table-footer]',

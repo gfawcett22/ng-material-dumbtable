@@ -2,7 +2,7 @@ import { FilterObject } from '../../lib/interfaces/FilterObject';
 import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
 
 import { Grid } from '../../lib/grid';
-import { Column } from "../../lib/column";
+import { Column } from '../../lib/column';
 
 @Component({
   selector: '[thead-filters-row]',

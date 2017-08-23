@@ -1,10 +1,7 @@
-import { CustomerPagingResult } from './models/customer-paging-result.interface';
-import { Row } from '../table/lib/row';
-import { CustomerPagingParameters } from './models/customer-paging-parameters.interface';
-import { CustomerService } from './services/customer.service';
-import { Customer } from './models/customer.interface';
+import { Row } from '../ng-material-dumbtable/lib/row';
+import { Customer } from './customer.interface';
 import { Component, OnInit } from '@angular/core';
-import { ITableSettings } from '../table/lib/interfaces/ITableSettings';
+import { ITableSettings } from '../ng-material-dumbtable/lib/interfaces/ITableSettings';
 
 @Component({
     selector: 'app-demo',
@@ -37,22 +34,23 @@ export class DemoComponent {
         noResultsMessage: 'No Results',
         paging: {
             enabled: true,
+            currentPageNumber: 1,
             pageSizeValues: ['25', '50', '100']
         }
     };
 
     constructor() { }
 
-    openEditDialog(row: Row) {
+    edit(row: Row) {
         console.log('Edit emitted', row);
     }
 
-    openDetailDialog(row: Row) {
-        console.log(row);
+    create() {
+        console.log('Create emitted');
     }
 
-    openCreateDialog() {
-        console.log('Create emitted');
+    delete(row: Row) {
+      console.log('Delete emitted', row);
     }
 
     filter($event): void {

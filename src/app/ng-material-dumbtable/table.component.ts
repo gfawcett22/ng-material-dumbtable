@@ -10,6 +10,7 @@ import {
 import { ITableSettings } from './lib/interfaces/ITableSettings';
 import { deepExtend } from './lib/helpers';
 import { Grid } from './lib/grid';
+import { IPagingSettings } from "./lib/interfaces/IPagingSettings";
 
 @Component({
   selector: 'app-table',
@@ -48,20 +49,24 @@ export class TableComponent implements OnChanges {
     if (this.grid) {
       if (changes['settings']) {
         this.grid.setSettings(this.prepareSettings(), this.rows);
-      } 
-      else if(changes['rows']){
+      }
+      else if (changes['rows']){
         this.grid.setSettings(null, this.rows);
       }
     } else {
       this.initGrid();
-    }   
+    }
   }
 
   prepareSettings(): ITableSettings {
     return deepExtend({}, this.defaultSettings, this.settings);
   }
-  
+
   initGrid() {
     this.grid = new Grid(this.prepareSettings(), this.rows);
+  }
+
+  isPagingEnabled(): boolean {
+    return (<IPagingSettings>this.grid.getSetting('paging')).enabled;
   }
 }

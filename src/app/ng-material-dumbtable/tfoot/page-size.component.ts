@@ -18,7 +18,7 @@ export class PageSizeComponent {
 
     @Output() pageSize = new EventEmitter<any>();
 
-    currentPageSize: string;
+    currentPageSize: string = this.pageSize[0];
 
     constructor() { }
 

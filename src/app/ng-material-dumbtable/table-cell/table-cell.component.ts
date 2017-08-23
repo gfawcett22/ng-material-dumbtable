@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Cell } from "../lib/cell";
+import { Cell } from '../lib/cell';
 
 @Component({
   selector: 'table-cell',

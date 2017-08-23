@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { Grid } from "../../lib/grid";
+import { Grid } from '../../lib/grid';
 
 @Component({
   selector: '[thead-titles-row]',

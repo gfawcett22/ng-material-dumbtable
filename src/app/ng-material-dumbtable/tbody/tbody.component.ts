@@ -1,5 +1,5 @@
 import { Component, EventEmitter, OnChanges, Output, Input } from '@angular/core';
-import { Grid } from "../lib/grid";
+import { Grid } from '../lib/grid';
 
 @Component({
   selector: '[table-body]',

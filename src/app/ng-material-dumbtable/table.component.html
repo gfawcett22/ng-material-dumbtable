@@ -8,4 +8,7 @@
               (edit)="edit.emit($event)"
               (delete)="delete.emit($event)">
   </tbody>
+  <tfoot table-footer *ngIf="isPagingEnabled()"
+                      [grid]="grid">
+  </tfoot>
 </table>
