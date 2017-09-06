@@ -34,8 +34,10 @@ export class DemoComponent {
         noResultsMessage: 'No Results',
         paging: {
             enabled: true,
-            currentPageNumber: 1,
-            pageSizeValues: ['25', '50', '100']
+            currentPageNumber: 0,
+            defaultPageSize: 25,
+            pageSizeValues: [25, 50, 100],
+            totalRecordCount: this.customers.length
         }
     };
 
@@ -59,5 +61,9 @@ export class DemoComponent {
 
     sort($event): void {
       console.log($event);
+    }
+
+    paging(pagingObj): void {
+        console.log('Paging emitted', pagingObj);
     }
 }

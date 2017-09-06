@@ -1,15 +1,12 @@
 import { Component, OnInit, Input, OnChanges, Output, EventEmitter } from '@angular/core';
 import { Grid } from '../lib/grid';
-import { IPagingSettings } from 'app/ng-material-dumbtable/lib/interfaces/IPagingSettings';
+import { IPagingSettings } from '../lib/interfaces/IPagingSettings';
 
 @Component({
     selector: '[table-footer]',
     templateUrl: 'tfoot.component.html',
     styles: [
         `
-        tr {
-            display: flex;
-        }
         `
     ]
 })
@@ -19,22 +16,24 @@ export class TFootComponent implements OnChanges {
 
     @Output() paging = new EventEmitter<any>();
 
+    columnCount: number;
     pagingSettings: IPagingSettings;
-    pageSizeValues: string[] = [];
-    pageSize: string;
-    pageNumber: number;
+    pageSizeValues: number[] = [];
+    defaultPageSize: number;
+    currentPageNumber: number;
+    totalRecords: number;
 
-    constructor() { }
+    // Object with pageSize and pageNumber properties that is emitted when page size or number changes
+    pageValues: any = {};
+
+    constructor() {}
 
     ngOnChanges() {
         this.pagingSettings = this.grid.getSetting('paging');
         this.pageSizeValues = this.pagingSettings.pageSizeValues;
-    }
-
-    emitPaging(): void {
-        this.paging.emit({
-            pageSize: this.pageSize,
-            pageNumber: this.pageNumber
-        });
+        this.defaultPageSize = this.pagingSettings.defaultPageSize || this.pageSizeValues[0];
+        this.currentPageNumber = this.pagingSettings.currentPageNumber;
+        this.totalRecords = this.pagingSettings.totalRecordCount;
+        this.columnCount = Object.keys(this.grid.getSetting('columns')).length + 1;
     }
 }

@@ -9,6 +9,7 @@
               (delete)="delete.emit($event)">
   </tbody>
   <tfoot table-footer *ngIf="isPagingEnabled()"
-                      [grid]="grid">
+                      [grid]="grid"
+                      (paging)="paging.emit($event)">
   </tfoot>
 </table>

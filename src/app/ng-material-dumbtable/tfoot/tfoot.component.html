@@ -1,11 +1,12 @@
-<tr *ngIf="pagingEnabled">
-    <div class='placeholder'></div>
-    <div class='paging-container'>
-        <page-size [pageSizeValues]="pageSizeValues" 
-                    (pageSize)="emitPaging()">
-        </page-size>
-        <div class='page-number-container'>
-            
+<tr>
+    <td [attr.colspan]='columnCount'>
+        <div class='paging-container'>
+            <table-paging [pageSizeOptions]="pageSizeValues" 
+                    [defaultPageSize]="defaultPageSize"
+                    [currentPageNumber]="currentPageNumber"
+                    [totalRecords]="totalRecords"
+                    (pagingEvent)="paging.emit($event)">
+            </table-paging>
         </div>
-    </div>
+    </td>
 </tr>

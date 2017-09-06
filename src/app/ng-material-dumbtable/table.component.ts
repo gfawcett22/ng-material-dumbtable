@@ -10,7 +10,7 @@ import {
 import { ITableSettings } from './lib/interfaces/ITableSettings';
 import { deepExtend } from './lib/helpers';
 import { Grid } from './lib/grid';
-import { IPagingSettings } from "./lib/interfaces/IPagingSettings";
+import { IPagingSettings } from './lib/interfaces/IPagingSettings';
 
 @Component({
   selector: 'app-table',
@@ -27,6 +27,7 @@ export class TableComponent implements OnChanges {
   @Output() create = new EventEmitter<any>();
   @Output() filter = new EventEmitter<any>();
   @Output() sort = new EventEmitter<any>();
+  @Output() paging = new EventEmitter<any>();
 
   tableClass: string;
 
@@ -44,13 +45,12 @@ export class TableComponent implements OnChanges {
   }
 
   ngOnChanges(changes: { [propertyName: string]: SimpleChange }) {
-    //this.initGrid();
-    console.log(changes);
     if (this.grid) {
       if (changes['settings']) {
         this.grid.setSettings(this.prepareSettings(), this.rows);
       }
-      else if (changes['rows']){
+      // tslint:disable-next-line:one-line
+      else if (changes['rows']) {
         this.grid.setSettings(null, this.rows);
       }
     } else {
